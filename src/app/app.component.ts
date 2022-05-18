@@ -1,5 +1,6 @@
+import { YService } from './y.service';
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,25 @@ export class AppComponent {
 
   data = [];
 
-  constructor(private http: HttpClient)
+  constructor(private service: YService)
   {
-    this.http.get('http://localhost:8080/api.php').subscribe(data => {
+    this.service.getBooks().subscribe(data => {
     this.data.push(data);
     console.log(this.data);
     }, error => console.error(error));
+  }
+
+  onSubmit(form: NgForm){
+    const title = form.value.title;
+    const description = form.value.description;
+    const published = form.value.published;
+
+    this.service.addArticle(title, description, published).subscribe((res: any) => {
+      console.log(res);
+    },
+    (err)=>{
+      console.log(err);
+    });
   }
 }
 

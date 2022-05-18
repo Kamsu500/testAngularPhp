@@ -1,23 +1,59 @@
-<app-navbar></app-navbar>
-<app-second-section></app-second-section>
-<div class="container-fluid mt-2">
-  <div class="row justify-content-center w-100" *ngFor="let mydata of data[0]">
-    <div class="col-lg-4">
-      <div class="container">
-        <div class="card mt-2 w-100" >
-          <img src="{{ mydata.HeaderImage }}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text text-black">{{ mydata.Title }}</p><br>
-            <p class="card-text">{{ mydata.Introduction }}</p><br>
-            <p class="card-text">{{ mydata.LastMod | date }}</p><br>
-            <p class="card-text">{{ mydata.categorie }}</p>
+    <div class="container-fluid mt-5">
+      <span class="border border-info mt-1 rounded col-12 d-block w-100">
+        <form  action="" class="mx-auto" (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
+          <div class="row justify-content-center">
+            <div class="col-5">
+              <label for="">Titre</label>
+              <input type="text" class="form-control" required ngModel name="title">
+            </div>
+            <div class="col-5">
+              <label for="">Description</label>
+              <input type="text" class="form-control" required ngModel name="description">
+            </div>
           </div>
-        </div>
-      </div>
-  </div>
-</div>
-<app-first-section></app-first-section>
-<app-footer></app-footer>
-
+          <div class="row justify-content-center">
+            <div class="col-10">
+              <input class="form-check-input" type="checkbox" value="oui" id="defaultCheck1" ngModel name="published">
+              <label class="form-check-label" for="defaultCheck1">
+                 Publié l'article
+              </label>
+            </div>
+          </div>
+          <div class="row mt-2 justify-content-center">
+            <div class="d-grid gap-2 w-50 mb-1">
+              <button class="btn btn-success" type="submit">Enregistrer l'article</button>
+            </div>
+          </div>
+        </form>
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <table class="table caption-top table-bordered">
+                <caption>Liste des articles</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Publié</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let mydata of data[0]">
+                  <tr>
+                    <th scope="row">{{ mydata.id }}</th>
+                    <td>{{ mydata.title  }}</td>
+                    <td>{{ mydata.descriptions  }}</td>
+                    <td>{{ mydata.published }}</td>
+                    <td class="align-middle">
+                      <div class=col-xs-4> <button class="btn btn-primary">modifier</button> </div>
+                      <div class=col-xs-4> <button class="btn btn-danger mt-1">supprimer</button> </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </span>
+    </div>
 
 

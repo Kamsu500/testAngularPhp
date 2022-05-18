@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './component/footer/footer.component';
 import { FirstSectionComponent } from './component/first-section/first-section.component';
 import { SecondSectionComponent } from './component/second-section/second-section.component';
+import { RegisterComponent } from './component/register/register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,13 @@ import { SecondSectionComponent } from './component/second-section/second-sectio
     FooterComponent,
     FirstSectionComponent,
     SecondSectionComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

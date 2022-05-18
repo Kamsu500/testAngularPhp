@@ -122,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "myTestAngularPhp"
+    }
+  },
+  "defaultProject": "myTestAngularPhp",
+  "cli": {
+    "analytics": "3d44ed9a-fdb2-458b-bfb9-91c736bc72a3"
+  }
 }
